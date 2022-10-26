@@ -9,8 +9,36 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Library</h1>
-    <button>ADD BOOK</button>
-    <button class="clear" onclick="Clear()">Clear</button>
+    <div class="top">
+     <h1>Library</h1>
+     <div class="buttonContainer">
+     <button type="button" class="AddBook">ADD BOOK</button>
+    <button type="button" class="clear" onclick="Clear()">Clear</button>
+    </div>   
+    </div>
+    
+    
+    <div class="libCont">
+    
+</div>
+<div class="bg-modal">
+    <div class="modal-content">
+        <div class="close">+</div>
+        <img src="/images/book.svg" alt="" class="Icon">
+       
+            <input type="text" onfocus="this.value='' "placeholder="Book Name" class="BookName">
+            <input type="text" onfocus="this.value='' "placeholder="Author Name" class="AuthorName">
+            <input type="text" onfocus="this.value='' "placeholder="Number of Pages" class="Pages">
+            <div class="read">Read</div>
+            <label class="container">
+                <input type="checkbox" name="checkbox" onchange="checkValue = true;">
+                
+                <span class="checkmark"></span>
+            
+            </label>
+            <button class="submit" type="submit">Submit</button>
+      
+    </div>
+</div>
 </body>
 </html>
