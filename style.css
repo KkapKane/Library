@@ -1,5 +1,6 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Silkscreen&display=swap');
 body {
+    font-family: 'Roboto';
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -9,10 +10,18 @@ body {
     padding: 0px;
     background-color: rgb(113, 163, 126);
 }
-
+.libLogo {
+    
+    display: flex;
+}
+.buttonContainer  {
+   display: flex;
+   
+   gap: 200px;
+}
 .top {
     font-size: 20px;
-  
+    
     
     display: flex;
     flex-direction: column;
@@ -20,9 +29,15 @@ body {
     z-index: 1;
     align-items: center;
     width: 100vw;
-    height: 20%;
+    height: 200px;
     background-color: rgb(136, 138, 184);
     box-shadow: 5px 5px 5px 5px rgb(101, 83, 83);
+}
+
+.logo {
+    
+    height: 100px;
+    width: 100px;
 }
 
 .libCont {
@@ -55,12 +70,43 @@ divCard button {
     height: 40px;
     width: 40px;
     background-color: transparent;
-    
+    border: none;
     background-image: url(/images/delete.svg);
     background-position: center;
     background-size: 40px;
+    cursor: pointer;
+}
+.buttonCheck {
+    cursor: pointer;
+    border: none;
+    background-image: url(/images/read.svg);
+}
+h1 {
+    font-size: 50px;
+}
+.AddBook {
+    height: 80px;
+    width: 80px;
+    border: none;
+    background-color: transparent;
+    background-image: url(/images/Add.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80px ;
+    cursor: pointer;
 }
 
+.clear{
+    height: 80px;
+    width: 80px;
+    border: none;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    cursor: pointer;
+    background-image: url(/images/delete.svg);
+    background-position: center;
+    background-size: 80px;
+}
 
 .bg-modal {
      display: none;
@@ -78,12 +124,12 @@ bookNum {
     margin: 0px;
     padding: 0px;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     width: 100%;
     height: 20%;
     box-shadow: 2px 2px 4px 3px black;
-    gap: 140px;
+   
     
     background-color: rgb(123, 123, 159);
     

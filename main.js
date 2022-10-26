@@ -45,35 +45,27 @@ function Add() {
   let pageprompt = document.querySelector(".Pages").value;
   var books = new Book(nameprompt, authorprompt, pageprompt);
   var checkbox = document.querySelector("input[name=checkbox]");
- 
+
   checkbox.addEventListener("change", function () {
-     checkValue = true;
+    checkValue = true;
     if (this.checked) {
-      
       checkValue = true;
       books.markRead();
-      
-      
     } else {
       console.log("check box is not checked..");
-     
+
       checkValue = false;
     }
   });
   if (checkValue == true) {
-    
     books.markRead().addBookToLibrary();
-  }
-  else 
-  {
+  } else {
     books.addBookToLibrary();
-    }
+  }
   createDiv();
- console.log(books.readStatus)
+  console.log(books.readStatus);
   return this;
 }
-
-
 
 //---------function that creates div and set text content to user input-----------/
 function createDiv() {
@@ -83,23 +75,28 @@ function createDiv() {
   const rowThree = document.createElement("authorDiv");
   const rowFour = document.createElement("pages");
   const readBox = document.createElement("input");
-  const readText = document.createElement("ReadStatus");
-  
-  
+  const readText = document.createElement("ReadStatus" + myLibrary.length);
 
-
- 
   emptydiv.classList.add("book" + myLibrary.length);
   rowOne.innerHTML =
-    "Book" + " " + myLibrary.length + "<button onclick='Delete(" + myLibrary.length + ")'> </button>";
+    "Book" +
+    " " +
+    myLibrary.length +
+    "<button onclick='changeRead(" +
+    myLibrary.length +
+    ")'" +
+    "class='buttonCheck'" +
+    "> </button>" +
+    "<button onclick='Delete(" +
+    myLibrary.length +
+    ")'> </button>";
   rowTwo.textContent = "Book Name:" + " " + myLibrary.slice(-1)[0][0];
   rowThree.textContent = "Author:" + " " + myLibrary.slice(-1)[0][1];
-  rowFour.innerHTML = "Pages:" + " " + myLibrary.slice(-1)[0][2] 
+  rowFour.innerHTML = "Pages:" + " " + myLibrary.slice(-1)[0][2];
   if (checkValue == true) {
-    readText.textContent = "Read"
-  }
-  else {
-    readText.textContent = "Not Read"
+    readText.textContent = "Read";
+  } else {
+    readText.textContent = "Not Read";
   }
 
   libCont.appendChild(emptydiv);
@@ -108,8 +105,6 @@ function createDiv() {
   emptydiv.appendChild(rowThree);
   emptydiv.appendChild(rowFour);
   emptydiv.appendChild(readText);
-
-  
 }
 
 //---------Delete all div childs and set array to none-----------/
@@ -126,8 +121,26 @@ function removeAllChildNodes(parent) {
 }
 
 function Delete(num) {
-  
   className = ".book" + num;
   let ele = document.querySelector(className);
   ele.remove();
+}
+
+function changeRead(num) {
+  console.log("hi");
+  className = "readstatus" + num;
+  let ele = document.querySelector(className);
+  let index = num - 1
+  
+  if (ele.textContent == "Read") {
+    myLibrary[index][3] = false;
+    ele.textContent = "Unread";
+    console.log(myLibrary[index][3])
+  }
+  else {
+    ele.textContent = "Read";
+    myLibrary[index][3] = true;
+    console.log(myLibrary[index][3]);
+  }
+  
 }
