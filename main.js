@@ -1,3 +1,4 @@
+var myLibrary = [];
 class Book {
   constructor(name, author, pages, readStatus) {
     this.name = name;
@@ -15,8 +16,6 @@ class Book {
     return this;
   }
 }
-
-myLibrary = [];
 
 //---------Labels-----------/
 const addBtn = document.querySelector(".AddBook");
@@ -45,6 +44,11 @@ function Add() {
   let pageprompt = document.querySelector(".Pages").value;
   var books = new Book(nameprompt, authorprompt, pageprompt);
   var checkbox = document.querySelector("input[name=checkbox]");
+
+  if (nameprompt == "" || authorprompt == "" || pageprompt == "") {
+    alert("there is an empty field");
+    return;
+  }
 
   checkbox.addEventListener("change", function () {
     checkValue = true;
@@ -130,17 +134,17 @@ function changeRead(num) {
   console.log("hi");
   className = "readstatus" + num;
   let ele = document.querySelector(className);
-  let index = num - 1
-  
+  let index = num - 1;
+
   if (ele.textContent == "Read") {
     myLibrary[index][3] = false;
     ele.textContent = "Unread";
-    console.log(myLibrary[index][3])
-  }
-  else {
+    ele.style.color = "red";
+    console.log(myLibrary[index][3]);
+  } else {
     ele.textContent = "Read";
+    ele.style.color = "green";
     myLibrary[index][3] = true;
     console.log(myLibrary[index][3]);
   }
-  
 }
